@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.mendix.com/package/1.0/">
+  <modelerProject xmlns="http://www.mendix.com/modelerProject/1.0/">
+    <project />
+    <projectFile path="SampleAppA.mpr" />
+    <files>
+      <file path="javasource\administration\proxies\Account.java" />
+      <file path="javasource\administration\proxies\AccountPasswordData.java" />
+      <file path="javasource\administration\proxies\microflows\Microflows.java" />
+      <file path="javasource\com\mendix\core\Core.java" />
+      <file path="javasource\system\UserActionsRegistrar.java" />
+      <file path="javasource\system\actions\VerifyPassword.java" />
+      <file path="javasource\system\proxies\DeviceType.java" />
+      <file path="javasource\system\proxies\Error.java" />
+      <file path="javasource\system\proxies\EventStatus.java" />
+      <file path="javasource\system\proxies\FileDocument.java" />
+      <file path="javasource\system\proxies\Image.java" />
+      <file path="javasource\system\proxies\Language.java" />
+      <file path="javasource\system\proxies\ScheduledEventInformation.java" />
+      <file path="javasource\system\proxies\Session.java" />
+      <file path="javasource\system\proxies\SoapFault.java" />
+      <file path="javasource\system\proxies\Statistics.java" />
+      <file path="javasource\system\proxies\TimeZone.java" />
+      <file path="javasource\system\proxies\TokenInformation.java" />
+      <file path="javasource\system\proxies\User.java" />
+      <file path="javasource\system\proxies\UserRole.java" />
+      <file path="javasource\system\proxies\XASInstance.java" />
+      <file path="javasource\system\proxies\microflows\Microflows.java" />
+      <file path="theme\index-rtl.html" />
+      <file path="theme\index.html" />
+      <file path="theme\login.html" />
+    </files>
+  </modelerProject>
+</package>

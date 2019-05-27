@@ -1,0 +1,65 @@
+
+---
+apiVersion: apps/v1beta2
+kind: StatefulSet
+metadata:
+  name: mendix-k8s-stateful
+  labels:
+    app: mendix-k8s
+spec:
+  serviceName: mendix-k8s-ss
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mendix-k8s
+  template:
+    metadata:
+      labels:
+        app: mendix-k8s
+    spec:
+      containers:
+        - name: mendix-app
+          image: mendix/sample-app-kubernetes:v2
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /build/data/files
+              name: mendix-data
+          env:
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                    name: mendix-app-secrets
+                    key: admin-password
+            - name: DATABASE_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: mendix-app-secrets
+                  key: db-endpoint
+          livenessProbe:
+              httpGet:
+                  path: /
+                  port: 80
+              initialDelaySeconds: 15
+              periodSeconds: 20
+  volumeClaimTemplates:
+  - metadata:
+      name: mendix-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: glusterfs-storage
+      resources:
+        requests:
+          storage: 50Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mendix-app-service
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: mendix-k8s
+  type: NodePort
