@@ -52,7 +52,7 @@ RUN "/buildpack/compilation" /build /cache &&\
 
 COPY scripts/startup /build
 COPY scripts/vcap_application.json /build
-RUN chown mendix:mendix startup vcap_application.json
+RUN chown mendix:mendix /build/startup /build/vcap_application.json
 WORKDIR /build
 
 USER mendix
