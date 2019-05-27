@@ -47,8 +47,11 @@ RUN "/buildpack/compilation" /build /cache &&\
     chown -R mendix /buildpack /build /.java /root 
 
 # Copy start scripts
-COPY --chown=mendix:mendix scripts/startup /build
-COPY --chown=mendix:mendix scripts/vcap_application.json /build
+#COPY --chown=mendix:mendix scripts/startup /build
+#COPY --chown=mendix:mendix scripts/vcap_application.json /build
+
+COPY scripts/startup /build
+COPY scripts/vcap_application.json /build
 WORKDIR /build
 
 USER mendix
