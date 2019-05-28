@@ -19,4 +19,4 @@ oc new-app --template=openshift/postgresql-persistent --param=DATABASE_SERVICE_N
 
 oc create secret generic mendix-app-secrets --from-literal=admin-password=${ADMIN_PASSWORD} --from-literal=db-endpoint=${DATEBASE_ENDPOINT}
 
-oc create -f https://raw.githubusercontent.com/hcs-company/openshift-mendix/master/$(APP_NAME}.yaml
+oc create -f https://raw.githubusercontent.com/hcs-company/openshift-mendix/master/${APP_NAME}.yaml
