@@ -44,10 +44,10 @@ RUN "/buildpack/compilation" /build /cache &&\
     useradd -r -U -d /root mendix &&\
     chown -R mendix /buildpack /build /.java /root 
 
-# Copy start scripts
+# Copy start scripts & create mxbuild directory
 COPY scripts/startup /build
 COPY scripts/vcap_application.json /build
-RUN chown mendix:mendix /build/startup /build/vcap_application.json
+RUN mkdir -p /build/mxbuild && chown mendix:mendix /build/mxbuild /build/startup /build/vcap_application.json
 
 WORKDIR /build
 
