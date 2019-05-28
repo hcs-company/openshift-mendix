@@ -19,7 +19,7 @@ spec:
         - name: mendix-app
           image: docker-registry.default.svc:5000/mendix-on-openshift/mendix-app:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           volumeMounts:
             - mountPath: /build/data/files
               name: mendix-data
@@ -34,6 +34,18 @@ spec:
                 secretKeyRef:
                   name: mendix-app-secrets
                   key: db-endpoint
+          livenessProbe:
+              httpGet:
+                  path: /
+                  port: 80
+              initialDelaySeconds: 15
+              periodSeconds: 20
+          readinessProbe:
+              httpGet:
+                  path: /
+                  port: 80
+              initialDelaySeconds: 60
+              periodSeconds: 30
   volumeClaimTemplates:
   - metadata:
       name: mendix-data
@@ -53,7 +65,6 @@ spec:
   ports:
     - port: 80
       protocol: TCP
-      targetPort: 8080
   selector:
     app: mendix-ocp
 ---
@@ -67,6 +78,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: mendix-app-service
+    name: mendix-service
     weight: 100
   wildcardPolicy: None
