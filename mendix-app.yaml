@@ -1,13 +1,12 @@
-
 ---
 apiVersion: apps/v1beta2
 kind: StatefulSet
 metadata:
-  name: mendix-k8s-stateful
+  name: mendix-app-stateful
   labels:
-    app: mendix-k8s
+    app: mendix-app
 spec:
-  serviceName: mendix-k8s-ss
+  serviceName: mendix-app-ss
   replicas: 2
   selector:
     matchLabels:
@@ -15,11 +14,11 @@ spec:
   template:
     metadata:
       labels:
-        app: mendix-k8s
+        app: mendix-app
     spec:
       containers:
         - name: mendix-app
-          image: mendix/sample-app-kubernetes:v2
+          image: docker-registry.default.svc:5000/mendix-on-openshift/openshift-mendix:latest
           ports:
             - containerPort: 80
           volumeMounts:
@@ -57,9 +56,23 @@ kind: Service
 metadata:
   name: mendix-app-service
 spec:
+  type: ClusterIP
   ports:
-  - port: 80
-    protocol: TCP
+    - port: 80
+     protocol: TCP
   selector:
-    app: mendix-k8s
-  type: NodePort
+    app: mendix-app
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mendix-app-route
+spec:
+  host: mendix.ocp.hcs-company.com
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: mendix-service
+    weight: 100
+  wildcardPolicy: None

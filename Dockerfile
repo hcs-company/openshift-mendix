@@ -3,12 +3,10 @@
 #
 # Author: Mendix Digital Ecosystems, digitalecosystems@mendix.com
 # Version: 2.0.0
-#ARG ROOTFS_IMAGE=mendix/rootfs
 
-#FROM ${ROOTFS_IMAGE}
 FROM mendix/rootfs
 LABEL Author="Mendix Digital Ecosystems"
-LABEL maintainer="digitalecosystems@mendix.com"
+LABEL last_maintainer="marcel.kerker@hcs-company.com"
 
 # Build-time variables
 ARG BUILD_PATH=project
@@ -47,12 +45,10 @@ RUN "/buildpack/compilation" /build /cache &&\
     chown -R mendix /buildpack /build /.java /root 
 
 # Copy start scripts
-#COPY --chown=mendix:mendix scripts/startup /build
-#COPY --chown=mendix:mendix scripts/vcap_application.json /build
-
 COPY scripts/startup /build
 COPY scripts/vcap_application.json /build
 RUN chown mendix:mendix /build/startup /build/vcap_application.json
+
 WORKDIR /build
 
 USER mendix
