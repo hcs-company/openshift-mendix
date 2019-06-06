@@ -1,0 +1,16 @@
+
+MENDIX_APP_DIR=Company_Expenses
+APP_NAME=Company_Expenses.mpk
+
+
+echo "Create project dir and unzip applicaton"
+mkdir ${MENDIX_APP_DIR}
+unzip appstore/${APP_NAME} -d ${MENDIX_APP_DIR}
+
+echo "Build Mendix image with name: ${APP_NAME} from dir: ${MENDIX_APP_DIR}"
+#docker build . --build-arg=BUILD_PATH=${MENDIX_APP_DIR} -t  mendix-test-app
+
+#echo "Remove old deployment"
+#oc delete is ${APP_NAME}
+#oc delete bc ${APP_NAME}
+oc new-build . --strategy=docker --build-arg=BUILD_PATH=${MENDIX_APP_DIR} --name=mendix-demo
