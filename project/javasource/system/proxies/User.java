@@ -73,12 +73,12 @@ public class User
 
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
-	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.getSudoContext() can be used to obtain sudo access).
 	 */
 	public static system.proxies.User initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("Expenses.Employee", mendixObject.getType()))
-			return expenses.proxies.Employee.initialize(context, mendixObject);
+		if (com.mendix.core.Core.isSubClassOf("Administration.Account", mendixObject.getType()))
+			return administration.proxies.Account.initialize(context, mendixObject);
 
 		return new system.proxies.User(context, mendixObject);
 	}

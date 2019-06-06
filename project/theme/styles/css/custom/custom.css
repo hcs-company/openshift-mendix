@@ -83,8 +83,14 @@ a:hover {
 .mx-datagrid .mx-datagrid-head-table {
   /* Styles here */
 }
+.mx-datagrid .mx-datagrid-head-table th {
+  /* Styles here */
+}
 .mx-datagrid .mx-datagrid-head-table .mx-datagrid-head-wrapper {
   /* Styles here */
+}
+.mx-datagrid .mx-datagrid-head-table .mx-datagrid-head-wrapper .mx-datagrid-head-caption {
+  font-size: 11px;
 }
 .mx-datagrid .mx-datagrid-body-table {
   /* Styles here */
@@ -182,6 +188,10 @@ a:hover {
   /* Styles here */
 }
 
+.form-group .control-label {
+  /* Styles here */
+}
+
 /* ==========================================================================
    Listview
 
@@ -273,7 +283,7 @@ a:hover {
   /* Styles here */
 }
 .mx-navbar ul.nav > li.mx-navbar-item > a {
-  /* Styles here */
+  color: #FFF;
 }
 .mx-navbar ul.nav > li.mx-navbar-item > a:hover, .mx-navbar ul.nav > li.mx-navbar-item > a:focus, .mx-navbar ul.nav > li.mx-navbar-item > a.active {
   /* Styles here */
@@ -311,7 +321,11 @@ a:hover {
   /* Styles here */
 }
 .mx-navigationtree .navbar-inner ul li a {
-  /* Styles here */
+  padding: 20px;
+  border: 0;
+}
+.mx-navigationtree .navbar-inner ul li a .glyphicon {
+  margin-right: 0.3em;
 }
 .mx-navigationtree .navbar-inner ul li a:hover,
 .mx-navigationtree .navbar-inner ul li a:focus,
@@ -323,6 +337,9 @@ a:hover {
 }
 .mx-navigationtree li.mx-navigationtree-has-items {
   /* Styles here */
+}
+.mx-navigationtree li.mx-navigationtree-has-items > ul li a {
+  padding: 15px 40px;
 }
 
 /* ==========================================================================
@@ -459,41 +476,25 @@ h1, h2, h3, h4, h5, h6,
    Used for navigation layouts
 ========================================================================== */
 .region-topbar {
-  /* Styles here */
+  border-bottom-color: #0595db;
+  min-height: 60px;
 }
-.region-topbar > .mx-layoutcontainer-wrapper {
-  /* Styles here */
+.region-topbar > .mx-layoutcontainer-wrapper .navbar-brand img {
+  height: 26px;
+  margin-top: -5px;
+  margin-right: 5px;
 }
 .region-topbar .toggle-btn {
-  /* Styles here */
-}
-.region-topbar .navbar-right {
-  /* SSO widgets */
+  color: #FFF;
+  border-color: #FFF;
 }
 .region-topbar .navbar-right .mx-appswitcher-button-placeholder,
 .region-topbar .navbar-right .mx-profilemenu-button-placeholder {
-  /* Styles here */
+  border: 0;
 }
-.region-topbar .navbar-right .mx-appswitcher-button-placeholder iframe,
 .region-topbar .navbar-right .mx-profilemenu-button-placeholder iframe {
-  /* Styles here */
-}
-.region-topbar .navbar-right .mx-profilemenu-button-placeholder {
-  /* Styles here */
-}
-
-.region-sidebar {
-  /* Styles here */
-}
-.region-sidebar > .mx-layoutcontainer-wrapper {
-  /* Styles here */
-}
-
-.region-content {
-  /* Styles here */
-}
-.region-content > .mx-layoutcontainer-wrapper {
-  /* Styles here */
+  width: 38px !important;
+  height: 38px !important;
 }
 
 /* ==========================================================================
@@ -501,17 +502,9 @@ h1, h2, h3, h4, h5, h6,
 
    Used to style your app brand and logo
 ========================================================================== */
-.navbar-brand {
-  /* Styles here */
-}
-.navbar-brand img {
-  /* Styles here */
-}
 .navbar-brand a {
-  /* Styles here */
-}
-.navbar-brand a:hover, .navbar-brand a:focus {
-  /* Styles here */
+  color: #FFF;
+  font-size: 18px;
 }
 
 /* ==========================================================================
@@ -519,17 +512,45 @@ h1, h2, h3, h4, h5, h6,
 
    Default Mendix Layout
 ========================================================================== */
+.profile-phone,
+.profile-tablet {
+  /* Styles here */
+}
+.profile-phone .mx-layoutcontainer-wrapper,
+.profile-tablet .mx-layoutcontainer-wrapper {
+  /* Styles here */
+}
+
 /* ==========================================================================
    Listview for phone and tablet
 ========================================================================== */
-.profile-phone,
-.profile-tablet {
-  /* Listview Load More button */
+.profile-phone .mx-listview,
+.profile-tablet .mx-listview {
+  /* Styles here */
 }
 .profile-phone .mx-listview .mx-listview-searchbar,
 .profile-tablet .mx-listview .mx-listview-searchbar {
+  /* Styles here */
+}
+.profile-phone .mx-listview .mx-listview-searchbar button,
+.profile-tablet .mx-listview .mx-listview-searchbar button {
   /* Reset Search Button - default hidden */
+}
+.profile-phone .mx-listview .mx-listview-searchbar .mx-listview-search-input,
+.profile-tablet .mx-listview .mx-listview-searchbar .mx-listview-search-input {
   /* Search Field */
+}
+.profile-phone .mx-listview .mx-listview-searchbar .mx-listview-search-input input,
+.profile-tablet .mx-listview .mx-listview-searchbar .mx-listview-search-input input {
+  /* Styles here */
+}
+.profile-phone label,
+.profile-tablet label {
+  /* Styles here */
+}
+.profile-phone .mx-listview-loadMore,
+.profile-tablet .mx-listview-loadMore {
+  /* Listview Load More button */
 }
 
 /* ==========================================================================
@@ -537,6 +558,29 @@ h1, h2, h3, h4, h5, h6,
 
    Default Mendix Header for Mobile 
 ========================================================================== */
+body .mx-header {
+  /* Styles here */
+  border: 0;
+}
+body .mx-header .mx-header-center {
+  /* Styles here */
+}
+body .mx-header .mx-header-left {
+  /* Styles here */
+}
+body .mx-header .mx-header-left .mx-link {
+  /* Styles here */
+}
+body .mx-header .mx-header-right {
+  /* Styles here */
+}
+body .mx-header .mx-title {
+  /* Styles here */
+}
+body .mx-header .mx-sidebartoggle {
+  /* Styles here */
+}
+
 /* ==========================================================================
    Tabcontainer
 
@@ -546,18 +590,26 @@ h1, h2, h3, h4, h5, h6,
    Special styles for presenting Page Template Dashboard
 ========================================================================== */
 .page-dashboard {
-  background-color: #EFF4F7;
+  /* Styles here */
 }
 .page-dashboard .chartjs-node {
-  margin-top: 30px;
+  /* Styles here */
 }
 
 .page-dashboard-default .card {
-  min-height: 345px;
+  /* Styles here */
 }
 
 .page-dashboard-mytasks .card {
-  min-height: 320px;
+  /* Styles here */
+}
+
+.page-dashboard-actions {
+  /* Styles here */
+}
+
+.page-dashboard-actions-tasks {
+  /* Styles here */
 }
 
 /* ==========================================================================
@@ -605,22 +657,20 @@ h1, h2, h3, h4, h5, h6,
 /* ==========================================================================
    Special styles for presenting Page Template Tabs
 ========================================================================== */
-.page-tabs {
-  /* Styles here */
+.page-tabs .section.pageheader {
+  border: 0;
+  padding-bottom: 20px;
 }
 .page-tabs .tabsfullwidth {
-  background-color: #EFF4F7;
+  /* Styles here */
 }
 
 .page-tabs-default {
   /* Styles here */
 }
 
-.page-tabs-fullwidth {
-  /* Styles here */
-}
 .page-tabs-fullwidth .pageheader.pageheader-fullwidth {
-  border-style: none;
+  /* Styles here */
 }
 
 /* ==========================================================================
@@ -665,7 +715,7 @@ h1, h2, h3, h4, h5, h6,
    Special styles for presenting Page Template Phone
 ========================================================================== */
 .phone-page-dashboard {
-  background-color: #EFF4F7;
+  /* Styles here */
 }
 
 .phone-page-dashboard-default {
@@ -713,7 +763,7 @@ h1, h2, h3, h4, h5, h6,
    Special styles for presenting Page Template Tablet Dashboard
 ========================================================================== */
 .tablet-page-dashboard {
-  background-color: #EFF4F7;
+  /* Styles here */
 }
 
 .tablet-page-dashboard-default {
@@ -913,6 +963,22 @@ h1, h2, h3, h4, h5, h6,
 /* ==========================================================================
    Section Header
 ========================================================================== */
+.sectionheader {
+  /* Styles here */
+}
+
+.sectionheader-title {
+  /* Styles here */
+}
+
+.sectionheader-subtitle {
+  /* Styles here */
+}
+
+.sectionheader-avatar {
+  /* Styles here */
+}
+
 /* ==========================================================================
    Profile Card
 ========================================================================== */

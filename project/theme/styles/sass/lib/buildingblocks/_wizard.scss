@@ -36,7 +36,7 @@
 	width: 72px;
 	height: 72px;
 	color: $gray-primary;
-	border: 2px solid $color-border-default;
+	border: 2px solid $default-border-color;
 	background-color: #FFF;
 
 	// Labels and buttons
@@ -45,12 +45,12 @@
 }
 .wizard-step-number-active {
 	color: #FFF;
-	border-color: $color-primary;
-	background-color: $color-primary;
+	border-color: $brand-primary;
+	background-color: $brand-primary;
 }
 .wizard-step-number-visited {
-	color: $color-primary;
-	border-color: $color-primary;	
+	color: $brand-primary;
+	border-color: $brand-primary;	
 	background-color: #FFF;
 }
 .wizard-step-title {
@@ -81,12 +81,16 @@
     border-radius: 4px;
     background-color: $gray-lighter;
     position: relative;
+
+    [class*=col-]:first-child .wizard-progress-step {
+    	margin-left: 0;
+    }
 }
 .wizard-steps-container {
 	border-bottom: 1px solid $gray-primary;
 }
 .wizard-progress-step {
-	margin: 0;
+	margin: 0 0 0 -30px;
     padding: 14px 20px 14px 30px;
     position: relative;
     background: $gray-lighter;
@@ -101,6 +105,7 @@
         content: " ";
         pointer-events: none;
 		left: 100%;
+		z-index: 10;
 	}
 	&:before {
 	    top: 50%;
@@ -121,6 +126,22 @@
 	&:after {
 		border-left-color: $color-primary-lighter;
 	}
+	.wizard-progress-number {
+		background-color: $brand-primary;
+	}
+}
+.wizard-progress-step-visited {
+	background-color: $color-primary-lighter;
+
+	&:after {
+		border-left-color: $color-primary-lighter;
+	}
+	.wizard-progress-number {
+		background-color: $brand-success;
+	}
+	.wizard-progress-title {
+		color: $brand-success;
+	}
 }
 .wizard-progress-number {
 	display: inline-block;
@@ -134,7 +155,7 @@
     border-radius: 10px;
 }
 .wizard-progress-title {
-	color: $color-primary;
+	color: $brand-primary;
 }
 .wizard-step-content {
 	padding: 10px 20px;

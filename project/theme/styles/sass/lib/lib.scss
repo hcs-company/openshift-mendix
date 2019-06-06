@@ -28,7 +28,23 @@
 @import "components/tables";
 @import "components/templategrids";
 @import "components/typography";
-@import "components/mendixsso";
+
+// Page Templates
+@import "pagetemplates/responsive/page-dashboard";
+@import "pagetemplates/responsive/page-form";
+@import "pagetemplates/responsive/page-login";
+@import "pagetemplates/responsive/page-masterdetail";
+@import "pagetemplates/responsive/page-tabs";
+@import "pagetemplates/responsive/page-website";
+@import "pagetemplates/responsive/page-wizard";
+@import "pagetemplates/phone/phone-page-dashboard";
+@import "pagetemplates/phone/phone-page-form";
+@import "pagetemplates/phone/phone-page-listview";
+@import "pagetemplates/phone/phone-page-wizard";
+@import "pagetemplates/tablet/tablet-page-dashboard";
+@import "pagetemplates/tablet/tablet-page-form";
+@import "pagetemplates/tablet/tablet-page-masterdetail";
+@import "pagetemplates/tablet/tablet-page-wizard";
 
 // Building Blocks
 @import "buildingblocks/actionblock";
@@ -41,13 +57,13 @@
 @import "buildingblocks/multilevel";
 @import "buildingblocks/pageheader";
 @import "buildingblocks/sectionheader";
-@import "buildingblocks/profilecard.scss";
+@import "buildingblocks/profilecard";
 @import "buildingblocks/profileheader";
 @import "buildingblocks/products";
 @import "buildingblocks/sidebarheader";
 @import "buildingblocks/tabsfullwidth";
 @import "buildingblocks/wizard";
-@import "buildingblocks/templategrid/templategrid-profilecard.scss";
+@import "buildingblocks/templategrid/templategrid-profilecard";
 
 // Mobile
 @import "mobile/layouts/base";

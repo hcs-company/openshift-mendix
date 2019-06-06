@@ -4,42 +4,44 @@
    Used for navigation layouts
 ========================================================================== */
 .region-topbar {
-	/* Styles here */
+	  border-bottom-color: $brand-primary;
+	  min-height: 60px;
 	> .mx-layoutcontainer-wrapper {
-		/* Styles here */
+		.navbar-brand img {
+			height: 26px;
+			margin-top: -5px;
+			margin-right: 5px;
+		}
 	}
 	.toggle-btn {
-		/* Styles here */
+		color: #FFF;
+		border-color: #FFF;
 	}
 	.navbar-right {
-		/* SSO widgets */
 		.mx-appswitcher-button-placeholder,
 		.mx-profilemenu-button-placeholder {
-			/* Styles here */
-			iframe {
-			/* Styles here */
-			}
+			border: 0;
 		}
 		.mx-profilemenu-button-placeholder {
-			/* Styles here */
+			iframe {
+				width: 38px !important;
+				height: 38px !important;
+			}
 		}
 	}
 }
 .region-sidebar {
-	/* Styles here */
+	
 	> .mx-layoutcontainer-wrapper {
-		/* Styles here */
+		
 	}
 }
 .region-content {
-	/* Styles here */
 	> .mx-layoutcontainer-wrapper {
-		/* Styles here */
+
 	}
 }
-.layout-sidebar-responsive {
 
-}
 
 /* ==========================================================================
    Navbar Brand
@@ -47,15 +49,12 @@
    Used to style your app brand and logo
 ========================================================================== */
 .navbar-brand {
-	/* Styles here */
+
 	img {
-		/* Styles here */
+
 	}
 	a {
-		/* Styles here */
-		&:hover,
-		&:focus {
-			/* Styles here */
-		}
+		color: $navbar-brand-name;
+		font-size: 18px;
 	}
 }

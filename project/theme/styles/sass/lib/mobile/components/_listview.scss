@@ -16,16 +16,19 @@
 		.mx-listview-searchbar {
 			padding: 10px;
 			margin-bottom: 0;
+			position: relative;
 
 			/* Reset Search Button */
 			button {
-				display: none;
+				//display: none;
+				position: absolute;
+				right: 10px;
+				background: none;
 			}
 			/* Search Field */
 			.mx-listview-search-input {
 				input {
 					box-shadow:	none;
-					padding: 0;
 					border-style: none;
 					background-color: $gray-lighter;
 					text-align: center;
@@ -34,6 +37,9 @@
 		}
 		.mx-list {
 			.mx-listview-item {
+				&:active {
+					background-color: $grid-bg-hover;
+				}
 				&:first-child {
 					border-radius: 0;
 				}
