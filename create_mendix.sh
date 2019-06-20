@@ -13,35 +13,35 @@ DATABASE_SERVICE_NAME=mendix-db
 DATEBASE_ENDPOINT=postgres://${DATEBASE_USER}:${DATEBASE_PASSWORD}@${DATABASE_SERVICE_NAME}.${PROJECT}.svc.cluster.local:5432/${DATEBASE_NAME}
 
 echo
-echo #####
+echo "#####"
 echo "Create new project: ${PROJECT}" 
-echo #####
+echo "#####"
 oc new-project ${PROJECT}
 
-echo #####
+echo "#####"
 echo "Build Mendix image with name: ${APP_NAME}"
-echo #####
+echo "#####"
 #oc new-build . --strategy=docker --build-arg=BUILD_PATH=${MENDIX_APP_DIR} --name=${APP_NAME}
-oc new-build https://github.com/hcs-company/openshift-mendix.git --name=${APP_NAME}
+oc new-build https://github.com/hcs-company/openshift-mendix.git --build-arg=BUILD_PATH=${MENDIX_APP_DIR} --name=${APP_NAME}
 
-echo #####
+echo "#####"
 echo "Create PostegreSql Database"
-echo #####
+echo "#####"
 oc new-app --template=openshift/postgresql-persistent --param=DATABASE_SERVICE_NAME=${DATABASE_SERVICE_NAME} --param=POSTGRESQL_USER=${DATEBASE_USER} --param=POSTGRESQL_PASSWORD=${DATEBASE_PASSWORD} --param=POSTGRESQL_DATABASE=${DATEBASE_NAME}
 
-echo #####
+echo "#####"
 echo "Create a secret for the MxAdmin password and the datebase endpoint"
-echo #####
+echo "#####"
 oc create secret generic mendix-app-secrets --from-literal=admin-password=${ADMIN_PASSWORD} --from-literal=db-endpoint=${DATEBASE_ENDPOINT}
 
-echo #####
+echo "#####"
 echo "Create a statefuleset of the application"
-echo #####
+echo "#####"
 oc create -f ${APP_NAME}.yaml
 
-echo #####
+echo "#####"
 echo "Set a deployment trigger if the image changes"
-echo #####
+echo "#####"
 #oc set triggers statefulset/mendix-ocp-stateful --from-image=${PROJECT}/${APP_NAME}:latest -c mendix-app
 
 echo "Go to URL: https://mendix.ocp.hcs-company.com"
